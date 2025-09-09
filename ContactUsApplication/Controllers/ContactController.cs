@@ -5,6 +5,15 @@ namespace ContactUsApplication.Controllers
 {
     public class ContactController : Controller
     {
+        //File Download Example
+        public FileResult FileExample()
+        {
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "files", "Nazmul Hasan_CVS.pdf");
+            var fileBytes = System.IO.File.ReadAllBytes(filePath);
+            var fileName = "Nazmul Hasan_CVS.pdf";
+            return File(fileBytes, "application/pdf", fileName);
+
+        }
         //Json Data Example
         public JsonResult JsonExample()
         {
